@@ -1,0 +1,51 @@
+{
+    "name": "d3tv-overlays",
+    "version": "0.0.0",
+    "description": "",
+    "homepage": "",
+    "author": {
+        "name": "inkfarer",
+        "email": "inkfarer@inkfarer.com",
+        "url": "https://inkfarer.com"
+    },
+    "files": [
+        "dashboard",
+        "graphics",
+        "extension.js",
+        "extension"
+    ],
+    "keywords": [
+        "",
+        "nodecg-bundle"
+    ],
+    "nodecg": {
+        "compatibleRange": "^1.1.1",
+        "dashboardPanels": [
+            {
+                "name": "now-playing",
+                "title": "Now Playing",
+                "width": 3,
+                "file": "now-playing.html",
+                "workspace": "YHTHI",
+                "headerColor": "#262F40"
+            }
+        ],
+        "graphics": [
+            {
+                "file": "main.html",
+                "width": 1920,
+                "height": 1080
+            }
+        ]
+    },
+    "repository": "https://github.com/nodecg/nodecg.git",
+    "license": "MIT",
+    "dependencies": {
+        "gsap": "^3.1.1",
+        "lastfm": "^0.9.3",
+        "socket.io-client": "^2.3.0"
+    },
+    "devDependencies": {
+        "typescript": "^3.7.5"
+    }
+}

@@ -1,0 +1,95 @@
+:root {
+	--blue: #3F51B5;
+	--blueHover: #32408F;
+	--red: #C9513E;
+	--redHover: #A34233;
+	--green: #5BA664;
+	--greenHover: #46804D;
+}
+
+button {
+	background-color: var(--blue);
+	margin: 2px;
+	margin-top: 5px;
+	font-family: 'Roboto', sans-serif;
+	text-decoration: none;
+	border: none;
+	border-radius: 2px;
+	height: 30px;
+	color: white;
+	text-transform: uppercase;
+}
+
+.maxWidth {
+	width: 100%;
+}
+
+.btnBlue {
+	background-color: var(--blue);
+}
+
+.btnBlue:hover {
+	background-color: var(--blueHover);
+	transition-duration: 0.25s;
+}
+
+.btnRed {
+	background-color: var(--red);
+}
+
+.btnRed:hover {
+	background-color: var(--redHover) !important;
+	transition-duration: 0.25s;
+}
+
+.btnGreen {
+	background-color: var(--green);
+}
+
+.btnGreen:hover {
+	background-color: var(--greenHover) !important;
+	transition-duration: 0.25s;
+}
+
+button[disabled] {
+	color: #A9AAA9 !important;
+	background-color: #181E29 !important;
+}
+
+.space {
+	background-color: #262F40;
+	border-radius: 8px;
+	padding: 10px;
+	margin: 10px;
+}
+
+select {
+	width: 100%;
+	font-size: 16px;
+	margin-bottom: 5px;
+	border: 0px;
+	border-bottom: 1px solid #737373;
+	outline: 0px;
+	color: white;
+	background-color: rgba(0, 0, 0, 0);
+	padding: 4px;
+	font-family: 'Roboto', 'Noto', sans-serif;
+}
+
+input {
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	border-bottom: 1px solid #737373;
+	color: white;
+	font-size: 1em;
+	font-family: 'Roboto';
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.input-label {
+	color: #737373;
+	font-size: 0.75em;
+	margin: 5px 0;
+}
