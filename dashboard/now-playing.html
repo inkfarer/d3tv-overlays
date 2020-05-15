@@ -1,11 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="css/dashboard.css">
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard.css">
+	<style>
+		.showButton {
+			background-color: var(--green);
+		}
+		
+		.hideButton {
+			background-color: var(--red);
+		}
+		
+		.showHideSpace {
+			display: flex;
+			justify-content: center;
+		}
+
+		.showHideSpace div {
+			margin: 2.5px;
+		}
+	</style>
 </head>
+
 <body>
-	
-	<script src="now-playing.js"></script>
+    <div class="space showHideSpace layout horizontal">
+        <button raised id="showMusic" class="showButton">Show</button>
+        <button raised id="hideMusic" class="hideButton">Hide</button>
+    </div>
+    <div class="nowPlayingSpace space">
+        <div class="title">Now Playing (Last.fm)</div>
+        <div id="npText">song goes here...</div>
+    </div>
+    <div class="space">
+        <div class="title">Change song manually</div>
+        <input type="checkbox" id="checkManualSong" onchange="setReplicant('mSongEnabled', event)">Manual song input</input>
+        <div class="showHideSpace">
+            <div>
+                <div class="input-label">Song Artist</div>
+                <input type="text" id="artistInput"></input>
+            </div>
+            <div>
+                <div class="input-label">Song Name</div>
+                <input type="text" id="songInput"></input>
+            </div>
+        </div>
+        <button raised id="updateManual" class="maxWidth">Update</button>
+    </div>
+
+    <script src="now-playing.js"></script>
+    <script src="../bower_components/webcomponentsjs/webcomponents-loader.js"></script>
 </body>
+
 </html>

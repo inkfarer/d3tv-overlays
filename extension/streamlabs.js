@@ -37,8 +37,8 @@ module.exports = function (nodecg) {
 
 		//latest follower, sub and cheers
 
-		console.log(event);
-		console.log(unformatted);
+		/*console.log(event);
+		console.log(unformatted);*/
 
 		switch(event.type) {
 			case 'follow':

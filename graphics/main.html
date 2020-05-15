@@ -2,9 +2,117 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background-color: #666;
+		}
+
+		.icon {
+			background-color: rgba(0, 0, 0, 0.6);
+			border-radius: 50%;
+			width: 50px;
+			height: 50px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		svg {
+			fill: white;
+		}
+
+		.alerts > * {
+			margin-bottom: 10px;
+		}
+
+		.alerts {
+			position: absolute;
+			padding: 15px;
+			bottom: 0;
+			left: 0;
+		}
+		
+		.alertBox {
+			display: flex;
+			flex-direction: row;
+		}
+
+		.alertTextBG {
+			margin-left: 10px;
+			height: 50px;
+			display: flex;
+			align-items: center;
+			color: white;
+			background-color:rgba(0, 0, 0, 0.6);
+			padding: 0 15px;
+			border-radius: 25px;
+		}
+
+		.alertText {
+			font-family: 'Roboto Condensed', sans-serif;
+			font-size: 1.75em;
+			white-space: nowrap;
+		}
+
+		.measurer {
+			position: absolute;
+			z-index: -99999;
+			visibility: hidden;
+			opacity: 0;
+			font-family: 'Roboto Condensed';
+			width: 999;
+		}
+	</style>
 </head>
 <body>
-	
+	<div class="alerts">
+		<div class="alertBox">
+			<div class="icon">
+				<svg viewBox="0 0 1000 912.96" height="30" width="30">
+					<path class="a" d="M1000,336.09c0-161.58-131-292.57-292.58-292.57a291.69,291.69,0,0,0-208.51,87.33A291.67,291.67,0,0,0,292.58,45.7C131,45.7,0,176.69,0,338.28c0,79.88,33.11,152.29,85,205.08L497.82,956.48,910.63,543.37C964.51,490.3,1000,417.7,1000,336.09ZM498.91,130.85" transform="translate(0 -43.52)"/>
+				</svg>
+			</div>
+			<div class="alertTextBG">
+				<fitted-text class="alertText" id="followText" text=""></fitted-text>
+			</div>
+		</div>
+		<div class="alertBox">
+			<div class="icon">
+				<svg viewBox="0 0 995.66 948.07" height="30" width="30">
+					<path class="a" d="M478.68,57.76c11.73-36.09,30.91-36.09,42.64,0l83.42,256.73c11.73,36.09,52.37,65.62,90.32,65.62H965c38,0,43.88,18.25,13.18,40.56L759.79,579.33c-30.7,22.31-46.23,70.09-34.5,106.18l83.42,256.73c11.73,36.09-3.8,47.37-34.5,25.07L555.82,808.64c-30.7-22.31-80.94-22.31-111.64,0L225.79,967.31c-30.7,22.3-46.23,11-34.5-25.07l83.42-256.73c11.73-36.09-3.8-83.87-34.5-106.18L21.82,420.67C-8.88,398.36-2.95,380.11,35,380.11H304.94c37.95,0,78.59-29.53,90.32-65.62Z" transform="translate(-2.17 -30.69)"/>
+				</svg>
+			</div>
+			<div class="alertTextBG">
+				<fitted-text class="alertText" id="subText" text=""></fitted-text>
+			</div>
+		</div>
+		<div class="alertBox">
+			<div class="icon">
+				<svg viewBox="0 0 590.18 993" height="30" width="30">
+					<rect class="a" x="251.59" width="87" height="993"/>
+					<path class="a" d="M764.91,184.94c-83-37-146-64-279-64-202,8-256,125-265,202,0,111,30,182,255,232,45,16,197,32,184,122,0,0,5,86-151,87,0,0-141,11-255-80-35,73-49,106-49,106s87,77,258,88,313-60,329-176-23-221-241-255-193-113-193-113-10-80,105-96,199,17,254,52C743.91,236.94,764.91,184.94,764.91,184.94Z" transform="translate(-204.91 -3.5)"/>				  
+				</svg>
+			</div>
+			<div class="alertTextBG">
+				<fitted-text class="alertText" id="donatorText" text=""></fitted-text>
+			</div>
+		</div>
+		<div class="alertBox">
+			<div class="icon">
+				<svg viewBox="0 0 625.55 1000" height="30" width="30">
+					<path class="a" d="M477.85,0h55.48C554.47,107,613,147.71,666.75,191.55c50.2,40.95,136.06,105.68,144,215.32,0,0,22.46,97.75-81.9,260.24l-37-18.5s84.54-171.73-38.31-281.37c0,0-92.47-83.22-108.32-89.83s1.32,496.7,1.32,496.7S545.22,1000,329.89,1000c-101.71,0-142.66-55.48-142.66-116.25,0-59.44,71.33-146.63,190.22-144,109.63,2.44,100.4,15.85,100.4,15.85Z" transform="translate(-187.23)"/>
+				</svg>
+			</div>
+			<div class="alertTextBG">
+				<fitted-text class="alertText" id="musicText" max-width="1000" text=""></fitted-text>
+			</div>
+		</div>
+	</div>
+	<script src="../node_modules/gsap/dist/TextPlugin.js"></script>
+	<script src="../node_modules/gsap/dist/gsap.js"></script>
 	<script src="classes/fitted-text.js"></script>
 	<script src="main.js"></script>
 </body>

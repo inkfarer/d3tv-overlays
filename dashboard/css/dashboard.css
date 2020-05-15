@@ -60,7 +60,12 @@ button[disabled] {
 	background-color: #262F40;
 	border-radius: 8px;
 	padding: 10px;
-	margin: 10px;
+	margin: 5px 1px;
+}
+
+.title {
+	font-weight: bold;
+	margin-bottom: 5px;
 }
 
 select {
@@ -76,7 +81,7 @@ select {
 	font-family: 'Roboto', 'Noto', sans-serif;
 }
 
-input {
+input[type="text"] {
 	background-color: rgba(0, 0, 0, 0);
 	border: none;
 	border-bottom: 1px solid #737373;
