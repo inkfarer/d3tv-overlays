@@ -32,6 +32,22 @@ NodeCG.waitForReplicants(mSongEnabled).then(() => {
     });
 });
 
+musicShown.on('change', newValue => {
+    if (newValue) {
+        showMusic();
+    } else {
+        hideMusic();
+    }
+});
+
+function hideMusic() {
+    gsap.to('#musicAlertBox', {duration: 0.5, height: 0, opacity: 0});
+};
+
+function showMusic() {
+    gsap.to('#musicAlertBox', {duration: 0.5, height: 'auto', opacity: 1});
+};
+
 function changeSongText(songElem) {
     if (!songElem.song && !songElem.artist || songElem.song === '' && songElem.artist === '') {
         changeAlertText('musicText', 'Nothing is playing.');
@@ -61,18 +77,18 @@ latestDonation.on('change', newValue => {
 function changeAlertText(textElemID, newText) {
     const textElem = document.querySelector(`#${textElemID}`);
     const oldText = textElem.getAttribute('text');
-    console.log(oldText);
     const BGElem = textElem.parentNode;
     const iconElem = BGElem.parentNode.querySelector('.icon');
     const iconSVG = iconElem.querySelector('svg');
     //difference between old text and new text length
-    const textDuration = Math.abs(newText.length - textElem.innerText.length) / 40;
+    const textDuration = Math.abs(newText.length - textElem.innerText.length) / 30;
     const animTL = gsap.timeline();
-    animTL.add(gsap.to([BGElem, iconElem], {duration: 0.5, backgroundColor: 'rgba(255, 255, 255, 0.6)', filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 5px rgba(255, 255, 255, 0.6))'}), 0)
+    animTL.add(gsap.to([BGElem, iconElem], {duration: 0.5, backgroundColor: 'rgba(255, 255, 255, 0.6)', filter: 'drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 5px rgba(255, 255, 255, 0.6))', delay: 0.3}), 0)
     .add(gsap.to(iconSVG, {duration: 0.5, fill: 'black'}), 0)
     .add(gsap.to(textElem, {duration: 0.5, color: 'black'}), 0)
 
     .add(gsap.to(textElem, {ease: 'none', duration: textDuration, onUpdate: function() {
+        //basically rewrote the gsap text plugin because it doesn't work exactly how i want it to...
         var textLen;
         var substring;
         var oldTextPart;
@@ -105,3 +121,43 @@ function measureText(fontFamily, fontSize, text) {
     measurer.parentNode.removeChild(measurer);
     return width;
 };
+
+const alertOrder = nodecg.Replicant('alertOrder', {defaultValue: 2});
+
+alertOrder.on('change', newValue => {
+    var direction;
+    switch (newValue) {
+        case 0:
+            direction = 'column'
+            break;
+        case 1:
+            direction = 'column-reverse';
+    };
+    gsap.to('.alerts', {duration: 0.3, opacity: 0, ease: 'power2.in', onComplete: function() {
+        document.querySelector('.alerts').style.flexDirection = direction;
+    }});
+    gsap.to('.alerts', {duration: 0.3, opacity: 1, ease: 'power2.out', delay: 0.3});
+});
+
+const alertAlign = nodecg.Replicant('alertAlign', {defaultValue: 0});
+
+alertAlign.on('change', newValue => {
+    var align, direction;
+    switch (newValue) {
+        case 0:
+            align = 'flex-start';
+            direction = 'row';
+            break;
+        case 1:
+            align = 'flex-end';
+            direction = 'row-reverse';
+    };
+    gsap.to('.alerts', {duration: 0.3, opacity: 0, ease: 'power2.in', onComplete: function() {
+        document.querySelector('.alerts').style.alignItems = align;
+        const boxes = document.getElementsByClassName('alertBox');
+        for (let i = 0; i < boxes.length; i++) {
+            boxes[i].style.flexDirection = direction;
+        }
+    }});
+    gsap.to('.alerts', {duration: 0.3, opacity: 1, ease: 'power2.out', delay: 0.3});
+});

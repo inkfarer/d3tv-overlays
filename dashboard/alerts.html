@@ -3,6 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/dashboard.css">
+	<style>
+		.horizontal-buttons {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+		}
+	</style>
 </head>
 <body>
 	<div class="space">
@@ -16,6 +23,20 @@
 	<div class="space">
 		<div class="title">Latest donator</div>
 		<div class="dispDonator">who me?</div>
+	</div>
+	<div class="space">
+		<div class="title text-center">Alert order</div>
+		<div class="horizontal-buttons">
+			<button class="alertsNormal">Normal</button>
+			<button class="alertsReverse">Reverse</button>
+		</div>
+	</div>
+	<div class="space">
+		<div class="title text-center">Alignment direction</div>
+		<div class="horizontal-buttons">
+			<button class="alertsLeft">Left</button>
+			<button class="alertsRight">Right</button>
+		</div>
 	</div>
 	<script src="alerts.js"></script>
 </body>

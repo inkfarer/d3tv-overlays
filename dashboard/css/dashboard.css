@@ -98,3 +98,7 @@ input[type="text"] {
 	font-size: 0.75em;
 	margin: 5px 0;
 }
+
+.text-center {
+	text-align: center;
+}

@@ -26,21 +26,30 @@
                 "title": "Now Playing",
                 "width": 3,
                 "file": "now-playing.html",
-                "workspace": "YHTHI",
+                "workspace": "D3TV",
+                "headerColor": "#262F40"
+            },
+            {
+                "name": "alerts",
+                "title": "Alerts",
+                "width": 2,
+                "file": "alerts.html",
+                "workspace": "D3TV",
                 "headerColor": "#262F40"
             }
         ],
         "graphics": [
             {
                 "file": "main.html",
-                "width": 1920,
-                "height": 1080
+                "width": 960,
+                "height": 300
             }
         ]
     },
     "repository": "https://github.com/nodecg/nodecg.git",
     "license": "MIT",
     "dependencies": {
+        "dank-twitch-irc": "^3.0.7",
         "gsap": "^3.1.1",
         "lastfm": "^0.9.3",
         "socket.io-client": "^2.3.0"
