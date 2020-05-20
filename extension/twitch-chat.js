@@ -9,10 +9,17 @@ module.exports = function(nodecg) {
 
 	const client = new ChatClient();
 
-	client.on('ready', () => console.log('connected to chat'));
+	client.on('ready', () => nodecg.log.info(`connected to chat - user ${nodecg.bundleConfig.twitch.channel}`));
 
 	client.on('PRIVMSG', (message) => nodecg.sendMessage('chatMessage', message));
 
+	//handle message deletion events
+	client.on('CLEARCHAT', (message) => nodecg.sendMessage('clearChat', message));
+	client.on('CLEARMSG', (message) => nodecg.sendMessage('clearMsg', message));
+
 	client.connect();
-	client.join(nodecg.bundleConfig.twitch.channel);
-}
+	client.join(String(nodecg.bundleConfig.twitch.channel).toLowerCase()).then(null, (reason) => {
+		nodecg.log.error(`${reason} - Chat might not function properly.`);
+		return;
+	});
+};

@@ -43,6 +43,11 @@
                 "file": "main.html",
                 "width": 960,
                 "height": 300
+            },
+            {
+                "file": "chat.html",
+                "width": 960,
+                "height": 300
             }
         ]
     },
@@ -52,7 +57,9 @@
         "dank-twitch-irc": "^3.0.7",
         "gsap": "^3.1.1",
         "lastfm": "^0.9.3",
-        "socket.io-client": "^2.3.0"
+        "socket.io-client": "^2.3.0",
+        "twitch-emoticons": "github:mkody/twitch-emoticons#master",
+        "xmlhttprequest": "^1.8.0"
     },
     "devDependencies": {
         "typescript": "^3.7.5"
