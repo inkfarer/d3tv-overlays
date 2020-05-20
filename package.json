@@ -41,13 +41,13 @@
         "graphics": [
             {
                 "file": "main.html",
-                "width": 960,
+                "width": 1920,
                 "height": 300
             },
             {
                 "file": "chat.html",
-                "width": 960,
-                "height": 300
+                "width": 620,
+                "height": 140
             }
         ]
     },

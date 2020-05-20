@@ -73,8 +73,8 @@ nodecg.listenFor('chatMessage', (message) => {
 
 	//remove the element we just pushed out of sight
 	const messageElems = Array.from(document.querySelectorAll('.message')).reverse();
-	if (messageElems[3]) {
-		messageElems[3].parentNode.removeChild(messageElems[3]);
+	if (messageElems[4]) {
+		messageElems[4].parentNode.removeChild(messageElems[4]);
 	}
 });
 
