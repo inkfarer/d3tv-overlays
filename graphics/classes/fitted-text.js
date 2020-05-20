@@ -71,15 +71,3 @@ class FittedText extends HTMLElement {
     }
 }
 customElements.define('fitted-text', FittedText);
-setTimeout(() => {
-    const elem = document.querySelector('.text1');
-    if (elem)
-        elem.setAttribute('text', 'testing');
-}, 5000);
-setTimeout(() => {
-    const elem = document.querySelector('.text2');
-    if (elem) {
-        elem.setAttribute('max-width', '500');
-        elem.setAttribute('text', 'poggerspoggers');
-    }
-}, 7500);
