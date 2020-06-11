@@ -78,13 +78,13 @@ module.exports = async function(nodecg) {
 		}
 		for (let i = 0; i < message.emotes.length; i++) {
 			getTwitchChannelFromEmoteId(message.emotes[i].id, async (json) => {
-				if (json) {
+				if (json[0]) {
 					let channelName = json[0].channel_name;
-					if (cachedSubEmotes.includes(channelName)) return;
-
-					cachedSubEmotes.push(channelName);
-					await cacheSubEmotes(channelName);
-					nodecg.log.debug(`caching emotes for channel ${channelName}`);
+					if (!cachedSubEmotes.includes(channelName)) {
+						cachedSubEmotes.push(channelName);
+						await cacheSubEmotes(channelName);
+						nodecg.log.debug(`caching emotes for channel ${channelName}`);
+					}
 				}
 				if (i === message.emotes.length - 1) {
 					nodecg.sendMessage('chatMessage', message);
