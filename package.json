@@ -55,7 +55,7 @@
     "license": "MIT",
     "dependencies": {
         "dank-twitch-irc": "^3.0.7",
-        "gsap": "^3.1.1",
+        "gsap": "^3.6.1",
         "lastfm": "^0.9.3",
         "socket.io-client": "^2.3.0",
         "twitch-emoticons": "github:mkody/twitch-emoticons#master",
